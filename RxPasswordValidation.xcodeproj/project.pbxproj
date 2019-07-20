@@ -15,6 +15,12 @@
 		8073BD3222E355A80026BF15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8073BD3122E355A80026BF15 /* Assets.xcassets */; };
 		8073BD3522E355A80026BF15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8073BD3322E355A80026BF15 /* LaunchScreen.storyboard */; };
 		8073BD4022E355A80026BF15 /* RxPasswordValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD3F22E355A80026BF15 /* RxPasswordValidationTests.swift */; };
+		8073BD4B22E358770026BF15 /* PinNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD4A22E358760026BF15 /* PinNumberView.swift */; };
+		8073BD4D22E359040026BF15 /* UIColor+Extensition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD4C22E359040026BF15 /* UIColor+Extensition.swift */; };
+		8073BD4F22E359200026BF15 /* UIView+Extensition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD4E22E359200026BF15 /* UIView+Extensition.swift */; };
+		8073BD5122E359310026BF15 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD5022E359310026BF15 /* UIStackView+Extensions.swift */; };
+		8073BD5422E359BA0026BF15 /* PinNumberInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD5222E359BA0026BF15 /* PinNumberInputView.swift */; };
+		8073BD5522E359BA0026BF15 /* PinNumberInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD5322E359BA0026BF15 /* PinNumberInputViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,12 @@
 		8073BD3B22E355A80026BF15 /* RxPasswordValidationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxPasswordValidationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8073BD3F22E355A80026BF15 /* RxPasswordValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPasswordValidationTests.swift; sourceTree = "<group>"; };
 		8073BD4122E355A80026BF15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8073BD4A22E358760026BF15 /* PinNumberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinNumberView.swift; sourceTree = "<group>"; };
+		8073BD4C22E359040026BF15 /* UIColor+Extensition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensition.swift"; sourceTree = "<group>"; };
+		8073BD4E22E359200026BF15 /* UIView+Extensition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensition.swift"; sourceTree = "<group>"; };
+		8073BD5022E359310026BF15 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		8073BD5222E359BA0026BF15 /* PinNumberInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinNumberInputView.swift; sourceTree = "<group>"; };
+		8073BD5322E359BA0026BF15 /* PinNumberInputViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinNumberInputViewModel.swift; sourceTree = "<group>"; };
 		9E04071A31936EB49A6E02E8 /* Pods-RxPasswordValidation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxPasswordValidation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxPasswordValidation/Pods-RxPasswordValidation.debug.xcconfig"; sourceTree = "<group>"; };
 		EF548EA9D23AB88968E78E25 /* Pods-RxPasswordValidationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxPasswordValidationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxPasswordValidationTests/Pods-RxPasswordValidationTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +114,12 @@
 			children = (
 				8073BD2A22E355A70026BF15 /* AppDelegate.swift */,
 				8073BD2C22E355A70026BF15 /* ViewController.swift */,
+				8073BD4A22E358760026BF15 /* PinNumberView.swift */,
+				8073BD5222E359BA0026BF15 /* PinNumberInputView.swift */,
+				8073BD5322E359BA0026BF15 /* PinNumberInputViewModel.swift */,
+				8073BD4C22E359040026BF15 /* UIColor+Extensition.swift */,
+				8073BD4E22E359200026BF15 /* UIView+Extensition.swift */,
+				8073BD5022E359310026BF15 /* UIStackView+Extensions.swift */,
 				8073BD2E22E355A70026BF15 /* Main.storyboard */,
 				8073BD3122E355A80026BF15 /* Assets.xcassets */,
 				8073BD3322E355A80026BF15 /* LaunchScreen.storyboard */,
@@ -307,7 +325,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8073BD4B22E358770026BF15 /* PinNumberView.swift in Sources */,
 				8073BD2D22E355A70026BF15 /* ViewController.swift in Sources */,
+				8073BD4D22E359040026BF15 /* UIColor+Extensition.swift in Sources */,
+				8073BD5422E359BA0026BF15 /* PinNumberInputView.swift in Sources */,
+				8073BD5522E359BA0026BF15 /* PinNumberInputViewModel.swift in Sources */,
+				8073BD5122E359310026BF15 /* UIStackView+Extensions.swift in Sources */,
+				8073BD4F22E359200026BF15 /* UIView+Extensition.swift in Sources */,
 				8073BD2B22E355A70026BF15 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

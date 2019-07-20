@@ -6,14 +6,68 @@
 //  Copyright © 2019 안관수. All rights reserved.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
+import SnapKit
 
 class ViewController: UIViewController {
+    let disposeBag = DisposeBag()
+    
+    let titleLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "비밀번호 6자리를 입력해주세요"
+        lb.textColor = .white
+        lb.font = UIFont.systemFont(ofSize: 18)
+        return lb
+    }()
+    
+    let pinNumView = PinNumberView()
+    
+    let pinNumInputView = PinNumberInputView()
 
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = .init(rgb: 0x425bc7)
+        
+        self.view.addSubviews(
+            [
+                titleLabel,
+                pinNumView,
+                pinNumInputView
+            ]
+        )
+        
+        layout()
+
     }
+
+    func layout() {
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(self.topLayoutGuide.snp.bottom).offset(50)
+            $0.centerX.equalToSuperview()
+        }
+        
+        pinNumView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(30)
+            $0.left.right.equalToSuperview().inset(50)
+        }
+        
+        pinNumInputView.snp.makeConstraints {
+            $0.left.right.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().offset(-50)
+        }
+        
+    }
+
+    
 
 
 }
