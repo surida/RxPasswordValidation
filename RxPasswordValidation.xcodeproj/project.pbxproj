@@ -21,6 +21,10 @@
 		8073BD5122E359310026BF15 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD5022E359310026BF15 /* UIStackView+Extensions.swift */; };
 		8073BD5422E359BA0026BF15 /* PinNumberInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD5222E359BA0026BF15 /* PinNumberInputView.swift */; };
 		8073BD5522E359BA0026BF15 /* PinNumberInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD5322E359BA0026BF15 /* PinNumberInputViewModel.swift */; };
+		8073BD5A22E4A9B20026BF15 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD5922E4A9B10026BF15 /* ErrorModel.swift */; };
+		8073BD5C22E4A9E40026BF15 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD5B22E4A9E40026BF15 /* UserAPI.swift */; };
+		8073BD5E22E4AE800026BF15 /* ValidatePasswordServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD5D22E4AE800026BF15 /* ValidatePasswordServiceImpl.swift */; };
+		8073BD6022E4AEB90026BF15 /* ValidatePasswordServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8073BD5F22E4AEB90026BF15 /* ValidatePasswordServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		8073BD5022E359310026BF15 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		8073BD5222E359BA0026BF15 /* PinNumberInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinNumberInputView.swift; sourceTree = "<group>"; };
 		8073BD5322E359BA0026BF15 /* PinNumberInputViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinNumberInputViewModel.swift; sourceTree = "<group>"; };
+		8073BD5922E4A9B10026BF15 /* ErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		8073BD5B22E4A9E40026BF15 /* UserAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		8073BD5D22E4AE800026BF15 /* ValidatePasswordServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatePasswordServiceImpl.swift; sourceTree = "<group>"; };
+		8073BD5F22E4AEB90026BF15 /* ValidatePasswordServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatePasswordServiceMock.swift; sourceTree = "<group>"; };
 		9E04071A31936EB49A6E02E8 /* Pods-RxPasswordValidation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxPasswordValidation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxPasswordValidation/Pods-RxPasswordValidation.debug.xcconfig"; sourceTree = "<group>"; };
 		EF548EA9D23AB88968E78E25 /* Pods-RxPasswordValidationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxPasswordValidationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxPasswordValidationTests/Pods-RxPasswordValidationTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +120,7 @@
 		8073BD2922E355A70026BF15 /* RxPasswordValidation */ = {
 			isa = PBXGroup;
 			children = (
+				8073BD5622E4A75B0026BF15 /* Service */,
 				8073BD2A22E355A70026BF15 /* AppDelegate.swift */,
 				8073BD2C22E355A70026BF15 /* ViewController.swift */,
 				8073BD4A22E358760026BF15 /* PinNumberView.swift */,
@@ -135,6 +144,17 @@
 				8073BD4122E355A80026BF15 /* Info.plist */,
 			);
 			path = RxPasswordValidationTests;
+			sourceTree = "<group>";
+		};
+		8073BD5622E4A75B0026BF15 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8073BD5D22E4AE800026BF15 /* ValidatePasswordServiceImpl.swift */,
+				8073BD5F22E4AEB90026BF15 /* ValidatePasswordServiceMock.swift */,
+				8073BD5B22E4A9E40026BF15 /* UserAPI.swift */,
+				8073BD5922E4A9B10026BF15 /* ErrorModel.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		A095270A98BB824789DAC6E4 /* Frameworks */ = {
@@ -277,6 +297,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxPasswordValidation/Pods-RxPasswordValidation-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -286,6 +309,9 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -325,7 +351,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8073BD5A22E4A9B20026BF15 /* ErrorModel.swift in Sources */,
 				8073BD4B22E358770026BF15 /* PinNumberView.swift in Sources */,
+				8073BD5E22E4AE800026BF15 /* ValidatePasswordServiceImpl.swift in Sources */,
+				8073BD5C22E4A9E40026BF15 /* UserAPI.swift in Sources */,
+				8073BD6022E4AEB90026BF15 /* ValidatePasswordServiceMock.swift in Sources */,
 				8073BD2D22E355A70026BF15 /* ViewController.swift in Sources */,
 				8073BD4D22E359040026BF15 /* UIColor+Extensition.swift in Sources */,
 				8073BD5422E359BA0026BF15 /* PinNumberInputView.swift in Sources */,
@@ -504,7 +534,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Blue-Whale.RxPasswordValidation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -523,7 +553,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Blue-Whale.RxPasswordValidation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

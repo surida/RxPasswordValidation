@@ -9,6 +9,7 @@ target 'RxPasswordValidation' do
     pod 'Then'
     pod 'RxSwift',    '~> 4.0'
     pod 'RxCocoa',    '~> 4.0'
+    pod 'Moya/RxSwift', '~> 13.0'
 
   # Pods for RxPasswordValidation
 

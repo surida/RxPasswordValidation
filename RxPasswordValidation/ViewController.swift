@@ -22,9 +22,11 @@ class ViewController: UIViewController {
     }()
     
     let pinNumView = PinNumberView()
-    
     let pinNumInputView = PinNumberInputView()
 
+    // service
+    let validatePasswordService = ValidatePasswordServiceMock.instance //ValidatePasswordServiceImpl.instance
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -46,9 +48,60 @@ class ViewController: UIViewController {
         )
         
         layout()
-
+        bind()
     }
 
+    func bind() {
+        
+        pinNumInputView.viewModel.numbersText
+            .drive(onNext: {
+                self.pinNumView.pinNumber = $0
+            })
+            .disposed(by: disposeBag)
+        
+        let inputPasswrod = pinNumInputView.viewModel.numbersText.asObservable()
+            .filter {
+                $0.count == 6
+            }
+            .share()
+        
+        let validateResult = inputPasswrod
+            .flatMap { [unowned self] inputPassword in
+                self.validatePasswordService.validatePassword(password: inputPassword)
+            }
+            .share()
+        
+        validateResult.asObservable()
+            .flatMap { (result) -> Observable<Void> in
+                switch result {
+                case .success:
+                    return Observable.just(Void())
+                default:
+                    return Observable.empty()
+                }
+            }
+            .withLatestFrom(inputPasswrod)
+            .bind {
+                print("\($0) is correct")
+            }
+            .disposed(by: disposeBag)
+        
+        validateResult.asObservable()
+            .flatMap { (result) -> Observable<String> in
+                switch result {
+                case .failed(let reason):
+                    return Observable.just(reason.error.message)
+                default:
+                    return Observable.empty()
+                }
+            }
+            .bind {
+                print("\($0)")
+            }
+            .disposed(by: disposeBag)
+
+    }
+    
     func layout() {
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(self.topLayoutGuide.snp.bottom).offset(50)
